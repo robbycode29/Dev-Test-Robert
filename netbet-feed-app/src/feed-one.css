@@ -1,0 +1,13 @@
+.feedone-box {
+    margin: 100px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+}
+
+.azure {
+    color: azure;
+}
