@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import feedOne from './feed-one';
+import FeedOne from './feed-one';
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <h1 className='spaced'>Track Selection</h1>
       </header>
       <div className='App-body'>
-        <div id='feed-1'>{feedOne()}</div>
+        <div id='feed-1'><FeedOne/></div>
       </div>
     </div>
   );
