@@ -12,18 +12,37 @@ class Feed extends Component {
     }
 
     componentDidMount() {
+        this.showLoading()
         this.getFeed()
-        this.timer = setInterval(() => this.getFeed(), 20000)
+        this.timer = setInterval(() => {
+            this.showLoading()
+            this.getFeed()
+        }, 20000)
+    }
+
+
+    showLoading = () => {
+        let loading = document.getElementById('loader');
+        loading.style.display = 'block'
+    }
+    hideLoading = () => {
+        let loading = document.getElementById('loader');
+        loading.style.display = 'none'
+    }
+
+    showErrorMessage = () => {
+        this.hideLoading();
+
+        let loading = document.getElementById('error-message');
+        loading.style.display = 'block'
+    }
+    hideErrorMessage = () => {
+
+        let loading = document.getElementById('error-message');
+        loading.style.display = 'none'
     }
 
     async getFeed() {
-        // fetch('https://api.netbet.com/development/randomFeed?website=casino&lang=eu&device=desktop&source=list1')
-        // .then(response => response.json())
-        // .then(response => {
-        //     let items = response.data.items;
-        //     this.setState({albumOne: items})
-        // });
-
         let apicall1 = fetch('https://api.netbet.com/development/randomFeed?website=casino&lang=eu&device=desktop&source=list1');
         let apicall2 = fetch('https://api.netbet.com/development/randomFeed?website=casino&lang=eu&device=desktop&source=list2');
         let apicall3 = fetch('https://api.netbet.com/development/randomFeed?website=casino&lang=eu&device=desktop&source=list3');
@@ -38,11 +57,15 @@ class Feed extends Component {
             
         })
         .catch(err => {
-
+            console.log(err)
+            this.showErrorMessage()
         });
 
         let process = (prom) => {
             prom.then(transdata => {
+
+                this.hideLoading()
+                this.hideErrorMessage();
 
                 function dynamicSort(property) {
                     var sortOrder = 1;
@@ -69,6 +92,8 @@ class Feed extends Component {
             <div className='feed-box'>
                 <h1 className='azure'>You must listen to</h1>
                 <div className='card-container'>
+                    <h3 className='placeholder hidden' id='loader'>Please wait...</h3>
+                    <h3 className='placeholder hidden' id='error-message'>Sorry, couldn't load tracks</h3>
                     <CardList items={this.state.album}/>
                 </div>
             </div>

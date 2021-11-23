@@ -11,3 +11,22 @@
 .azure {
     color: azure;
 }
+
+.hidden {
+    display: none;
+}
+
+.placeholder {
+    font-size: 24px;
+    color: azure;
+    width: 100%;
+}
+
+#error-message {
+    text-align: center;
+    background-color: red;
+    border-radius: 7px;
+    padding: 10px;
+    color: white;
+    font-weight: 100;
+}
