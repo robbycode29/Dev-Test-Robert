@@ -11,7 +11,12 @@ class Feed extends Component {
         }
     }
 
-    async componentDidMount() {
+    componentDidMount() {
+        this.getFeed()
+        this.timer = setInterval(() => this.getFeed(), 20000)
+    }
+
+    async getFeed() {
         // fetch('https://api.netbet.com/development/randomFeed?website=casino&lang=eu&device=desktop&source=list1')
         // .then(response => response.json())
         // .then(response => {
@@ -22,8 +27,8 @@ class Feed extends Component {
         let apicall1 = fetch('https://api.netbet.com/development/randomFeed?website=casino&lang=eu&device=desktop&source=list1');
         let apicall2 = fetch('https://api.netbet.com/development/randomFeed?website=casino&lang=eu&device=desktop&source=list2');
         let apicall3 = fetch('https://api.netbet.com/development/randomFeed?website=casino&lang=eu&device=desktop&source=list3');
-        let item = []
-        let datasorted = []
+        let item = [];
+
 
         Promise.all([apicall1, apicall2, apicall3])
         .then(files => {
