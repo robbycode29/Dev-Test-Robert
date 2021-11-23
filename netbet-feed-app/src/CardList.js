@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import FeedOne from "./feed-one";
+
 
 const CardList = (props) => {
     const cardComponent = props.items.map((items, i) => {

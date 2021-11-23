@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import FeedOne from './feed-one';
+import FeedOne from './feed';
 
 
 function App() {
