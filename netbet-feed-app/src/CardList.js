@@ -1,17 +1,19 @@
 import React from "react";
 import Card from "./Card";
 
-const CardList = ({items}) => {
+const CardList = (props) => {
     return(
         <div>
             {
-                items.map((i) => {
+                props.items.map((items, i) => {
+                    // console.log(i, items)
                     return(
                         <Card 
-                        title={items.title} 
-                        artist={items.artist} 
-                        label={items.label} 
-                        year={items.year}
+                        // title={props.items.title} 
+                        // artist={props.items.artist} 
+                        // label={props.items.label} 
+                        // year={props.items.year}
+                        albums={props.items[i]}
                         />
                     );
                 })
