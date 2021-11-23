@@ -12,10 +12,10 @@ import CardList from './CardList';
 
 // }
 
-    const albums = [
-        {title: 'Jackidy Jack', artist: 'Luanda', label: 'MTV Records', year: '1973'}, 
-        {title: 'Sunshine', artist: 'Rey Goldman', label: 'Teen Records', year: '1989'}
-    ]
+    // const albums = [
+    //     {title: 'Jackidy Jack', artist: 'Luanda', label: 'MTV Records', year: '1973'}, 
+    //     {title: 'Sunshine', artist: 'Rey Goldman', label: 'Teen Records', year: '1989'}
+    // ]
 
 class FeedOne extends Component {
     constructor() {

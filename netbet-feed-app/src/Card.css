@@ -1,6 +1,13 @@
 .const-size {
     width: 300px;
-    height: 600px
+    height: 500px
+}
+
+h2 {
+    font-size: 16px;
+}
+h3 {
+    font-size: 12px;
 }
 
 .vinyl:hover {
