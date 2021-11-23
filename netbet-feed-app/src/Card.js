@@ -5,7 +5,6 @@ import vinyl from './assets/vinyl-record.svg';
 
 
 const Card = (props) => {
-    // console.log(props)
     return(
         <div className='bg-light-blue dib br3 pa3 ma2 grow const-size'>
             <img className='vinyl' src={vinyl} alt='Record'/>
