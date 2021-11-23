@@ -23,6 +23,7 @@ class Feed extends Component {
         let apicall2 = fetch('https://api.netbet.com/development/randomFeed?website=casino&lang=eu&device=desktop&source=list2');
         let apicall3 = fetch('https://api.netbet.com/development/randomFeed?website=casino&lang=eu&device=desktop&source=list3');
         let item = []
+        let datasorted = []
 
         Promise.all([apicall1, apicall2, apicall3])
         .then(files => {
@@ -37,7 +38,22 @@ class Feed extends Component {
 
         let process = (prom) => {
             prom.then(transdata => {
+
+                function dynamicSort(property) {
+                    var sortOrder = 1;
+                    if(property[0] === "-") {
+                        sortOrder = -1;
+                        property = property.substr(1);
+                    }
+                    return function (a,b) {
+                        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+                        return result * sortOrder;
+                    }
+                }
+
                 item = item.concat(transdata.data.items);
+                item.sort(dynamicSort('title'));
+
                 this.setState({album: item})
             })
         }
